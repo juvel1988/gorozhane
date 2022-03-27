@@ -11,20 +11,22 @@
     <meta name="title" content="#ГОРОЖАНЕ - развитие городской среды Протвино" />
     <meta name="description" content="#ГОРОЖАНЕ - развитие городской среды Протвино" />
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/main.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static ' favicon.ico' %}">
     {% endblock %}
 
 </head>
 <body>
     <div class="header_menu">
+
+        <a href="{% url 'index' %}"><img class="site_logo"src="{% static 'media/header.png' %}" /> </a>
+       
         <span class="header_menu_text">
-            <a href="{% url 'index' %}"> <img src="{% static 'media/logo.png' %}" /></a>
-            <a href="{% url 'afisha' %}">Афиша</a>
-            <a href="{% url 'archive' %}">Архив</a>
-            <a href="{% url 'sport' %}">Спорт</a>
-            <a href="{% url 'map' %}">Карта</a>
-            <a href="{% url 'culture' %}">Культура</a>
-            <a href="{% url 'ecology' %}">Экология</a>
-            <a href="{% url 'excursions' %}">Экскурсии</a>
+            <a class="title" href="{% url 'afisha' %}">Афиша</a>
+            <a class="title"  href="{% url 'architecture' %}">Архитектура</a>
+            <a class="title"  href="{% url 'map' %}">Карта</a>
+            <a class="title" href="{% url 'culture' %}">Культура</a>
+            <a class="title" href="{% url 'sport' %}">Спорт</a>
+            <a class="title" href="{% url 'excursions' %}">Экскурсии</a>
         </span>
     </div>
     {% block content %} {% endblock %}
@@ -38,7 +40,7 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="widget subscribe no-box">
-                        <h5 class="widget-title">ПРОСвет<span></span></h5>
+                        <h5 class="widget-title">#ГОРОЖАНЕ</h5>
                         <p>Культурная реставрация и актуализация городской среды Протвино.  </p>
                     </div>
                 </div>
@@ -48,22 +50,22 @@
                         <h5 class="widget-title">Разделы сайта<span></span></h5>
                         <ul class="thumbnail-widget">
                             <li>
-                                <div class="thumb-content"><a href="{% url 'about' %}">О нас</a></div>
+                                <div class="thumb-content"><a href="{% url 'afisha' %}">Афиша</a></div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="{% url 'news' %}">Новости</a></div>
+                                <div class="thumb-content"><a href="{% url 'architecture' %}">Архитектура</a></div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="#.">Блоги</a></div>
+                                <div class="thumb-content"><a href="{% url 'map' %}">Карта</a></div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="#.">Проекты</a></div>
+                                <div class="thumb-content"><a href="{% url 'culture' %}">Кульура</a></div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="{% url 'cooperate' %}">Сотрудничество</a></div>
+                                <div class="thumb-content"><a href="{% url 'sport' %}">Спорт</a></div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="{% url 'contacts' %}">Контакты</a></div>
+                                <div class="thumb-content"><a href="{% url 'excursions' %}">Экскурсии</a></div>
                             </li>
                         </ul>
                     </div>
@@ -73,7 +75,7 @@
                     <div class="widget no-box">
                         <h5 class="widget-title">Регистрация<span></span></h5>
                         <p>Вы можете стать частью нашей комманды.</p>
-                        <a class="btn" href="#." target="_blank">Отправить заявку</a>
+                        <a class="btn" href="#." target="_blank" style="background-color: #777777;">Отправить заявку</a>
                     </div>
                 </div>
 

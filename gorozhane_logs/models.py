@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-#from .validators import validate_file_extension
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -13,10 +12,10 @@ class User(AbstractUser):
 
 class Events(models. Model):
     title = models.CharField('Заголовок', max_length=250)
-    slug = models.SlugField(max_length=50,unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, 
-    related_name='news_posts', null=True, blank=True)
-    main_photo = models.ImageField('Постер', null = True, blank = True, upload_to='prosvet/media/images/main')
+    slug = models.SlugField('Идентификатор', max_length=50,unique=True)
+    author = models.ForeignKey ( User, on_delete=models.CASCADE, 
+    related_name='Автор', null=True, blank=True)
+    main_photo = models.ImageField('Постер', null = True, blank = True, upload_to='articles/images/main')
     anons = models.CharField(max_length=350)
     body = RichTextUploadingField(
                                     null=False,
@@ -38,3 +37,55 @@ class Events(models. Model):
     class Meta:
         verbose_name = u"Новость"
         verbose_name_plural = u"Афиша" #Афиша
+
+class Architecture(models. Model):
+    title = models.CharField('Заголовок', max_length=250)
+    slug = models.SlugField('Идентификатор', max_length=50,unique=True)
+    main_photo = models.ImageField('Постер', null = True, blank = True, upload_to='articles/images/main')
+    anons = models.CharField(max_length=350)
+    body = RichTextUploadingField(
+                                    null=False,
+                                    blank=False,
+                                    # config_name='toolbar_Custom',
+                                    external_plugin_resources=[(
+                                        'youtube', 
+                                        '/static/ckeditor/ckeditor/plugins/youtube/',
+                                        'plugin.js',
+                                      
+                                    )],
+                                    )
+    #file = models.FileField(null = True, blank = True, upload_to='static/media/docs/')
+    date_added = models.DateTimeField(auto_now_add=True)
+   
+    def __str__(self): # Возврат понятного отображения заголовка в панель администрирования
+        return self.title
+
+    class Meta:
+        verbose_name = u"Статья"
+        verbose_name_plural = u"Архитектура" #Архитектура"
+
+class Culture(models. Model):
+    title = models.CharField('Заголовок', max_length=250)
+    slug = models.SlugField('Идентификатор', max_length=50,unique=True)
+    main_photo = models.ImageField('Постер', null = True, blank = True, upload_to='articles/images/main')
+    anons = models.CharField(max_length=350)
+    body = RichTextUploadingField(
+                                    null=False,
+                                    blank=False,
+                                    # config_name='toolbar_Custom',
+                                    external_plugin_resources=[(
+                                        'youtube', 
+                                        '/static/ckeditor/ckeditor/plugins/youtube/',
+                                        'plugin.js',
+                                      
+                                    )],
+                                    )
+    #file = models.FileField(null = True, blank = True, upload_to='static/media/docs/')
+    date_added = models.DateTimeField(auto_now_add=True)
+   
+    def __str__(self): # Возврат понятного отображения заголовка в панель администрирования
+        return self.title
+
+    class Meta:
+        verbose_name = u"Статья"
+        verbose_name_plural = u"Культура" #Культура"

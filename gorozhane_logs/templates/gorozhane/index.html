@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="heads">
-    <h2><a href="{% url 'news' %}"> Новости </a></h2>  <h2><a href="#">Наш блог</a></h2>
+    <h2><a href="{% url 'afisha' %}"> Новости </a></h2>  <h2><a href="#">Наш блог</a></h2>
 </div>
 
 
@@ -11,7 +11,7 @@
         {% if events %}
         {% for el in News_block %}
         <div class="content">
-            {% include "templates/news.html" %}
+            {% include "templates/afisha.html" %}
         </div>
         {% endfor %}
         {% else %}
@@ -21,10 +21,6 @@
     <div class="NewsBlock_blog">
 
     </div>
-
-
-
-
 
 </div>
 

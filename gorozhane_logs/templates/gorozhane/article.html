@@ -4,17 +4,17 @@
 
 <div class="content">
 
-    <h2>{{ news.title }}</h2>
-    <p>{{ news.date_added|date:'M d, Y H:i' }}</p>
+    <h2>{{ afisha.title }}</h2>
+    <p>{{ afisha.date_added|date:'M d, Y H:i' }}</p>
     <div class="content_block">
-        <p>{{ news.body|safe }}</p>
-        <p>{{ news.file.url }}</p>
+        <p>{{ afisha.body|safe }}</p>
+        <p>{{ afisha.file.url }}</p>
     </div>
-
+  
 
     <div id="author">
-        <p><img src="{{ news.author.avatar.url }}" height="160" align="bottom" /></p>
-        <p valign="bottom">{{ news.author }}</p>
+                <p><img src="{{ afisha.author.avatar.url }}" height="160" align="bottom" /></p>
+                <p valign="bottom">{{ afisha.author }}</p>
     </div>
 
 </div>

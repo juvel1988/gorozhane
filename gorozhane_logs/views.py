@@ -3,24 +3,27 @@ from django.views.generic import TemplateView
 from django.utils import timezone
 from django.contrib.syndication.views import Feed
 import datetime
-from .models import Events,  User
+from .models import Events, User, Culture, Architecture
 #_______________________________________________________________________________________
 class Index(TemplateView):
     #Домашняя страница приложения
     template_name = 'index.html'
-#_______________________________________________________________________________________
 
+class Architecture(TemplateView):
+    template_name = 'architecture.html'
+
+ #_______________________________________________________________________________________
 
 
 def articles(request):#Страница новостей
-        news = Events.objects.order_by('-date_added') 
-        context = {'news': news}
-        return render(request, 'gorozhane/news.html', context)
+        afisha = Events.objects.order_by('-date_added') 
+        context = {'afisha': afisha}
+        return render(request, 'gorozhane/afisha.html', context)
 
 
 def el(request, el_id): #Вывод отдельной новости
-    news = News.objects.get(id=el_id)
-    context = {'news':news}
+    news = Events.objects.get(id=el_id)
+    context = {'afisha':afisha}
     return render(request, 'gorozhane/article.html', context)
 
 def date(request):
