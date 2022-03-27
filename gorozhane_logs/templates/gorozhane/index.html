@@ -1,0 +1,33 @@
+{% extends "gorozhane/base.html" %}
+{% block content %}
+
+<div class="heads">
+    <h2><a href="{% url 'news' %}"> Новости </a></h2>  <h2><a href="#">Наш блог</a></h2>
+</div>
+
+
+<div class="NewsBlock">
+    <div class="NewsBlock_news">
+        {% if events %}
+        {% for el in News_block %}
+        <div class="content">
+            {% include "templates/news.html" %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Новостей нет</p>
+        {% endif %}
+    </div>
+    <div class="NewsBlock_blog">
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}
