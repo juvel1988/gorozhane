@@ -9,21 +9,27 @@ class Index(TemplateView):
     #Домашняя страница приложения
     template_name = 'index.html'
 
-class Architecture(TemplateView):
-    template_name = 'architecture.html'
-
  #_______________________________________________________________________________________
 
 
 def articles(request):#Страница новостей
-        afisha = Events.objects.order_by('-date_added') 
-        context = {'afisha': afisha}
+        temp = Events.objects.order_by('-date_added') 
+        context = {'afisha': temp}
         return render(request, 'gorozhane/afisha.html', context)
+
+
+
+def last_article():
+    last_pages = Events.objects.order_by("-id")[0:3]
+    return {
+        'last_pages': last_pages,
+    }
+
 
 
 def el(request, el_id): #Вывод отдельной новости
     news = Events.objects.get(id=el_id)
-    context = {'afisha':afisha}
+    context = {'news':news}
     return render(request, 'gorozhane/article.html', context)
 
 def date(request):

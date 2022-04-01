@@ -1,18 +1,18 @@
 {% extends "gorozhane/base.html" %}
 {% block content %}
+
 <div class="content">
-    {% if news %}
-    {% for el in news %}
+    {% if afisha %}
+    {% for article in afisha %}
 
 
-    <h2 align="left"><a href="{% url 'el' el.id %}">{{ el }}</a></h2>
-    {% if el.main_photo %}<br>
-    <p><a href="{% url 'el' el.id %}"><img src="{{ el.main_photo.url }}" width="640"></a></p>
+    <h2 align="left"><a href="{% url 'el' article.id %}">{{ article }}</a></h2>
+    {% if article.main_photo %}<br>
+    <p><a href="{% url 'el' article.id %}"><img src="{{ article.main_photo.url }}" width="640"></a></p>
     {% endif %}
     <div id="anons">
-        <p align="center">{{ el.anons }}</p>
+        <p align="center">{{ article.anons }}</p>
     </div>
-
 
     {% endfor %}
     {% else %}

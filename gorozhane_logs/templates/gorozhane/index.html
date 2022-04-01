@@ -8,15 +8,16 @@
 
 <div class="NewsBlock">
     <div class="NewsBlock_news">
-        {% if events %}
-        {% for el in News_block %}
-        <div class="content">
-            {% include "templates/afisha.html" %}
-        </div>
+
+        {% last_article as last %}
+
+
+        {% for article in last.last_pages %}
+
+        {{ article.title }}
+
         {% endfor %}
-        {% else %}
-        <p>Новостей нет</p>
-        {% endif %}
+
     </div>
     <div class="NewsBlock_blog">
 
